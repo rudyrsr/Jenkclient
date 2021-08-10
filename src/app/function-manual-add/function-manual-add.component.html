@@ -1,0 +1,52 @@
+
+<h1 class="title">Register new Functional Manual</h1>
+
+
+<form class="register-form" #fmForm="ngForm" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Manual Functional Name" [(ngModel)]='functionManual.functionalmanualName' name='name' id='fmName' required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Manual Function Code" [(ngModel)]='functionManual.functionalmanualCode' name='code' id='fmCode' required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Manual Function Description" [(ngModel)]='functionManual.functionalmanualDescription' name='description'id='fmDesc' required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Manual Function URL" [(ngModel)]='functionManual.functionalmanualUrl' name='type'id='fmType' required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Organizational Level" [(ngModel)]='functionManual.organitationalLevel' name='OrganizationalLev' id='fmOrgLevel' required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Education Level" [(ngModel)]='functionManual.educationLevel' name='educationLevel' id='fmEduLevel' required>
+    <mat-error>This field is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Position" [(ngModel)]="functionManual.positionId" name='Position'>
+      <mat-option *ngFor="let position of positions" [value]="position.id">
+        {{ position.positionName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> 
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/functionManuals" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-raised-button (click)="addFunctManual()" class="background-primary text-floral-white" type="submit" [disabled]="fmForm.invalid">CREATE</button>
+  </mat-toolbar>
+</div>
+<br>

@@ -1,0 +1,51 @@
+<h1 class="title">Update Project Assignment</h1>
+
+<form class="register-form" *ngIf="assignation" >
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="init date" [(ngModel)]='asignation.assignationInitDate' name='init'>
+  </mat-form-field> -->
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Init Date"
+           [(ngModel)]="assignation.assignationInitDate" name="init">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br>
+
+  <!-- <mat-form-field class="example-full-width">
+      <input matInput placeholder="end date" [(ngModel)]='asignation.assignationEndDate' name='end'>
+    </mat-form-field> -->
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker2" placeholder="End Date"
+             [(ngModel)]="assignation.assignationEndDate" name="end">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-select placeholder="Employee" [(ngModel)]="assignation.employeeId" name="employeee">
+          <mat-option *ngFor="let employee of employeeList" [value]="employee.id">
+            {{ employee.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Project" [(ngModel)]="assignation.projectId" name="projec">
+      <mat-option *ngFor="let project of projectList" [value]="project.id">
+        {{ project.projectName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button (click)="goBack()" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="update()" class="background-primary text-floral-white" id='updateProjectAssignment'>UPDATE</button>
+
+  </mat-toolbar>
+</div>
+<br>
+

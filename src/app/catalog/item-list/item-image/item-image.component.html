@@ -1,0 +1,15 @@
+<h1 class="title">Load Image item</h1>
+<br>
+<div>
+  <input class="title" type="file" (change)="onSelect($event)" [ngModel]="itemimage.image">
+</div>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/itemlist" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="edit()" class="background-primary text-floral-white">LOAD IMAGE ITEM</button>
+    <!--button type="button" (click)="onUpload()">UPLOAD</button-->
+  </mat-toolbar>
+</div>
+<br>

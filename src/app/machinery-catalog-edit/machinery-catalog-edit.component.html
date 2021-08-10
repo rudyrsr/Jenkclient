@@ -1,0 +1,25 @@
+<h1 class="title">Update New MachineryCatalog</h1>
+
+<form class="register-form" *ngIf="machineryCatalog">
+
+  <mat-form-field class="example-full-width"  >
+    <input matInput placeholder="Name of MachineryCatalog" [(ngModel)]="machineryCatalog.machinerycatalogName" name="name">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Characteristics" [(ngModel)]="machineryCatalog.characteristics" name="characteristics">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" [(ngModel)]="machineryCatalog.machinerycatalogDescription" name="Description">
+  </mat-form-field>
+
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/machineryCatalog" class="background-primary text-floral-white">BACK</button><br>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="edit()" class="background-primary text-floral-white" id="update">UPDATE</button>
+  </mat-toolbar>
+</div>
+<br>

@@ -1,0 +1,100 @@
+<mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+  <div fxFlex>
+    ADD Item
+  </div>
+  <span fxFlex class="flex-spacer"></span>
+  <div fxFlex align="end">
+    <button mat-button mat-dialog-close>&times;</button>
+  </div>
+</mat-toolbar>
+
+<!--p>{{item | json}}</p-->
+<form novalidate #loginForm="ngForm">
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <input matInput [(ngModel)]="item.name"
+               type="text" id="name"
+               placeholder="NameItem" name="name" #itemname="ngModel" pattern="[A-Za-z ]+" required>
+        <mat-hint>
+          <span [hidden]="itemname.pristine">
+            <span [hidden]="!itemname.errors?.required">Name of item is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="item.code"
+               type="text" id="code"
+               placeholder="CodeItem" name="code" #itemcode="ngModel" required>
+        <mat-hint>
+          <span [hidden]="itemcode.pristine">
+            <span [hidden]="!itemcode.errors?.required">Code of item is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="item.state"
+               type="text" id="state"
+               placeholder="StateItem" name="state" #itemstate="ngModel" pattern="[A-Za-z ]+" required>
+        <mat-hint>
+          <span [hidden]="itemstate.pristine">
+            <span [hidden]="!itemstate.errors?.required">State of item is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Subcategory " [(ngModel)]="item.subCategoryId" name='sub' #subcategory="ngModel"
+                    id="subcategory"
+                    required>
+          <mat-option *ngFor="let subcategory of subcategorys" [value]="subcategory.idSub">
+            {{ subcategory.nameSub}}
+          </mat-option>
+          <mat-hint>
+          <span [hidden]="subcategory.pristine">
+            <span [hidden]="!subcategory.errors?.required">Subcategory of item is required</span>
+          </span>
+          </mat-hint>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="item.description"
+               type="text" id="description"
+               placeholder="Description" name="description" #itemdescription="ngModel" required>
+        <mat-hint>
+          <span [hidden]="itemdescription.pristine">
+            <span [hidden]="!itemdescription.errors?.required">Description of item is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="item.price"
+               type="number" id="price"
+               placeholder="Price" name="price" #itemprice="ngModel" required>
+        <mat-hint>
+          <span [hidden]="itemprice.pristine">
+            <span [hidden]="!itemprice.errors?.required">Price of item is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="item.label"
+               type="text" id="label"
+               placeholder="Label" name="label" #itemlabel="ngModel" required>
+        <mat-hint>
+          <span [hidden]="itemlabel.pristine">
+            <span [hidden]="!itemlabel.errors?.required">Label of item is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close id="cancelItem">Cancel</button>
+    <button type="submit" id="enviarItem" mat-button class="background-primary text-floral-white"
+            [disabled]="loginForm.form.invalid" routerLink="/itemlist" (click)="onSubmit()">Enviar
+    </button>
+  </mat-dialog-actions>
+
+</form>
+

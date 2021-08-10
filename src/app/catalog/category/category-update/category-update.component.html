@@ -1,0 +1,39 @@
+<h1 class="title">Update Category</h1>
+
+<form class="register-form" novalidate #loginForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="NameCategory" [(ngModel)]='categorie.nameCategory' name='name' #categoryname="ngModel"
+           pattern="[A-Za-z ]+" id="name" required>
+    <mat-hint>
+          <span [hidden]="categoryname.pristine">
+            <span [hidden]="!categoryname.errors?.required">Name of category is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="CodeCategory" [(ngModel)]='categorie.code' name='code' #categorycode="ngModel"
+           id="code"
+           required>
+    <mat-hint>
+          <span [hidden]="categorycode.pristine">
+            <span [hidden]="!categorycode.errors?.required">Code of category is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+
+
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/category" class="background-primary text-floral-white" id="backCategory">BACK
+    </button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="edit()" class="background-primary text-floral-white"
+            [disabled]="loginForm.form.invalid" id="updateCategory">UPDATE CATEGORY
+    </button>
+
+  </mat-toolbar>
+</div>
+<br>
+

@@ -1,0 +1,57 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <h1>Affliction Detail</h1>
+</div>
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div fxFlex fxFlex.gt-sm="20%">
+    <img src="../../assets/images/affliction.png" alt="Logo" width="200" height="200">
+  </div>
+  <div fxFlex *ngIf="affliction">
+    <mat-card>
+      <mat-card-content>
+        <table>
+          <th align="right">
+            <h3>LABEL :</h3>
+            <h3>TYPE :</h3>
+            <h3>REGISTER NAME :</h3>
+            <h3>DESCRIPTION :</h3>
+            <h3>OBSEVATION :</h3>
+            <h3>REGISTRTION DATE :</h3>
+            <h3>EMPLOYEE :</h3>
+            <h3>JOB POSITION :</h3>
+            <h3>AFFLICTION DESCRIP. :</h3>
+          </th>
+          <th align="left">
+            <h3 id="label">-{{affliction.afflictionLabel}}</h3>
+            <h3 id="catalogName">-{{affliction.afflictionCatalogCM.afflictionCatalogName}}</h3>
+            <h3 id="afflictionName">-{{affliction.afflictionName}}</h3>
+            <h3 id="afflictionDescription">-{{affliction.afflictionDescription}}</h3>
+            <h3 id="afflictionObservation">-{{affliction.afflictionObservation}}</h3>
+            <h3 id="afflictionDate">-{{affliction.afflictionRegDate | date:'M/d/yyyy'}}</h3>
+            <h3 id="employeeName">-{{affliction.employeeCommand.name}}</h3>
+            <h3 id="employeePosition">-{{affliction.employeeCommand.position.positionName}}</h3>
+            <h3 id="AffictionCatalogDescription">-{{affliction.afflictionCatalogCM.afflictionCatalogDescription}}</h3>
+          </th>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+      <div fxFlex>
+        <button mat-button (click)="goBack()">BACK</button>
+      </div>
+
+      <span fxFlex class="flex-spacer"></span>
+      <div fxFlex align="center">
+<!-- edit -->
+<button mat-button id='afflictionUpdate' routerLink="/affliction/edit/{{affliction.id}}">UPDATE</button>
+      </div>
+      <span fxFlex class="flex-spacer"></span>
+      <a mat-button (click)="deleteToAffliction(affliction.id,
+                          affliction.afflictionCatalogCM.afflictionCatalogName,
+                          affliction.employeeCommand.name
+                          )"><span class="fa fa-minus-square" id='afflictionDelete'></span> DELETE</a>
+
+    </mat-toolbar>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="login-content">
+  <div class="login-group">
+    <form role="form" (ngSubmit)="login(user)"  #loginForm="ngForm" autocomplete="off">
+      <br>
+      <mat-form-field>
+        <input matInput type="text" [(ngModel)]="user.username" id="username" name="username" placeholder="Username" required>
+        <mat-icon matPrefix>
+          face
+        </mat-icon>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput type="password" [(ngModel)]="user.password" id="password" name="password" placeholder="Password" required>
+        <mat-icon matPrefix>
+          lock_open
+        </mat-icon>
+        <mat-error>This field is required</mat-error>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button
+              color="warn"
+              type="submit"
+              name="submit"
+              [disabled]="loginForm.invalid">
+        LOGIN
+      </button>
+      <br>
+      <br>
+      <span id="error">
+        <small>{{errorMessage}}</small>
+      </span>
+    </form>
+  </div>
+</div>

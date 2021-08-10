@@ -1,0 +1,44 @@
+<h1 class="title">Udpate Machinery</h1>
+
+<form class="register-form" *ngIf="machinery" >
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]="machinery.machineryCode" name="code">
+  </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of Machinery" [(ngModel)]="machinery.machineryName" name="name">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Brand" [(ngModel)]="machinery.machineryBrand" name="brand">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Price" [(ngModel)]="machinery.machineryPrice" name="price">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Date"
+           [(ngModel)]="machineryBuyDate" name="date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Catalog" [(ngModel)]="machinery.machineryCatalogId" name="catalog">
+      <mat-option *ngFor="let catalog of catalogList" [value]="catalog.id" >
+        {{ catalog.machinerycatalogName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/machinery" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="edit()" class="background-primary text-floral-white" id="upadte">UDPATE</button>
+
+  </mat-toolbar>
+</div>
+<br>

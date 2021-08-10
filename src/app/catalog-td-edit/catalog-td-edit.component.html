@@ -1,0 +1,24 @@
+<h1 class="title">Update catalog Type of Disability</h1>
+
+<form class="register-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='catalogTD.catalogTDCode' name='code'>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of catalog" [(ngModel)]='catalogTD.catalogTDName' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" [(ngModel)]='catalogTD.catalogTDDescription' name='observations'>
+  </mat-form-field>
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/catalogTD" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="edit()" class="background-primary text-floral-white">UPDATE CATALOG</button>
+
+  </mat-toolbar>
+</div>
+<br>

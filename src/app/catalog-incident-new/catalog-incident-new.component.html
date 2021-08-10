@@ -1,0 +1,28 @@
+<h1 class="title">Register New Incident Catalog</h1>
+
+<form class="register-form">
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='incidentCatalog.incidentCatalogCode' name='code'>
+  </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of Afliction" [(ngModel)]='incidentCatalog.incidenCatalogName' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Descriptions" [(ngModel)]='incidentCatalog.insidentCatalogDescription' name='descri'>
+  </mat-form-field>
+
+
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/catalogs/incidentCatalog" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="create()" class="background-primary text-floral-white">CREATE</button>
+
+  </mat-toolbar>
+</div>
+<br>
+

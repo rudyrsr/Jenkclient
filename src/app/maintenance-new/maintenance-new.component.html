@@ -1,0 +1,48 @@
+<h1 class="title">Registrate New Machinery Maintenance</h1>
+
+<form class="register-form">
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='maintenance.maintenanceCode' name='code'>
+  </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of Maintenance" [(ngModel)]='maintenance.maintenanceDescription' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Observation" [(ngModel)]='maintenance.maintenanceObservation' name='observation'>
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Price" [(ngModel)]='maintenance.maintenancePrice' name='preci'>
+  </mat-form-field>
+<!-- 
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Date" [(ngModel)]='maintenance.maintenanceTimeLineInitDate' name='date'>
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="maintenance Date"
+           [(ngModel)]='maintenance.maintenanceTimeLineInitDate' name='Date'>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Machinery" [(ngModel)]='maintenance.machineryId' name='machinery'>
+      <mat-option *ngFor="let machinery of machineryList" [value]="machinery.id">
+        {{ machinery.machineryName}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/construction-machinery/maintenance" class="background-primary text-floral-white">BACK</button><br>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="create()" class="background-primary text-floral-white" id="create">CREATE</button>
+
+  </mat-toolbar>
+</div>
+<br>

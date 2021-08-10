@@ -1,0 +1,53 @@
+<h1 class="title">Update Functional Manual</h1>
+
+<!-- <div>
+  {{ positions|json }}
+</div>
+<div>
+  {{functionManual|json}}
+</div>--> 
+
+<form class="register-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Functional Manual Name" [(ngModel)]='functionManual.functionalmanualName' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='functionManual.functionalmanualCode' name='code'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" [(ngModel)]='functionManual.functionalmanualDescription' name='descrip'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="type" [(ngModel)]='functionManual.functionalmanualUrl' name='type'>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Organitational Level" [(ngModel)]='functionManual.organitationalLevel' name='Organitation Level'>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Education Level" [(ngModel)]='functionManual.educationLevel' name='EducationLevel'>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Position" [(ngModel)]="functionManual.positionId" name='Position'>
+        <mat-option *ngFor="let position of positions" [value]="position.id">
+          {{ position.positionName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> 
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/functionManuals" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="updateFuncManual()" class="background-primary text-floral-white">UPDATE</button>
+
+  </mat-toolbar>
+</div>
+<br>
+

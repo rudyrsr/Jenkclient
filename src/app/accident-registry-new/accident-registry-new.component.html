@@ -1,0 +1,36 @@
+<h1 class="title">Registrate New Accident Registry</h1>
+<form class="register-form">
+    <mat-form-field class="example-full-width">
+        <mat-select placeholder="CODE Accident" [(ngModel)]="accidentRegistry.accidentId" name='projec'>
+          <mat-option [value]="accidentR.id">
+            {{ accidentR.accidentCode }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="accident Date"
+           [(ngModel)]='accidentRegistry.accidentRegistryDate' name='Date'>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="accident Hour" [(ngModel)]='accidentRegistry.accidentRegistryHour' name='Hour'>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-select placeholder="Employee" [(ngModel)]="accidentRegistry.employeeId" name='employeee'>
+              <mat-option *ngFor="let employee of employeeList" [value]="employee.id">
+                {{ employee.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/accident/create" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="create()" class="background-primary text-floral-white" id="btnCreateAccR">CREATE</button>
+  </mat-toolbar>
+</div>
+<br>

@@ -1,0 +1,48 @@
+<!-- <div>
+  {{contracts|json}}
+</div>  -->
+
+<h1 class="title">Contracts</h1>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="contracts">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Position </th>
+      <td mat-cell *matCellDef="let element"> {{element.positionCommand.positionName}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="employee">
+      <th mat-header-cell *matHeaderCellDef> Employee </th>
+      <td mat-cell *matCellDef="let element"> {{element.employeeCommand.name}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.contractDescription}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="view">
+        <th mat-header-cell *matHeaderCellDef> View Contract </th>
+        <td mat-cell *matCellDef="let element">
+          <a mat-icon-button href [routerLink]="'/contractDetail/'+element.id">
+            <mat-icon aria-label="Editar">assignment</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <button mat-button routerLink="/contractNew" class="background-primary text-floral-white">CREATE New Contract</button>
+
+</div>
+ 

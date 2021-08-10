@@ -1,0 +1,61 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex="80">
+    <div>
+      <h3>Categories List</h3>
+      <hr>
+    </div>
+  </div>
+  <div fxFlex="20">
+    <button mat-raised-button (click)="openCategoryForm()" id="addCategory">ADD CATEGORY</button>
+  </div>
+  <div fxFlex>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- ID Column -->
+      <ng-container matColumnDef="idCateg">
+        <th mat-header-cell *matHeaderCellDef> ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.idCateg}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nameCategory">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.nameCategory}}</td>
+      </ng-container>
+
+      <!-- Code Column -->
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> Code</th>
+        <td mat-cell *matCellDef="let element"> {{element.code}}</td>
+      </ng-container>
+
+      <!-- Action Update -->
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> UPDATE</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button href [routerLink]="'/category/updated/' + element.idCateg"
+                  [id]="'updateCategory' + element.idCateg">
+            UPDATE CATEGORY
+          </button>
+        </td>
+      </ng-container>
+      <!-- Action Delete -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> DELETE</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button (click)="deleteCategory(element.idCateg)" [id]="'deleteCategory' + element.idCateg">
+            DELETE CATEGORY
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+</div>
+

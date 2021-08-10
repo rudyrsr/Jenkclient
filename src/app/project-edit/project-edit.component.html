@@ -1,0 +1,57 @@
+<h1 class="title">Update Project</h1>
+
+<form class="register-form">
+ <!--  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='project.projectCode' name='code'>
+  </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Project name" [(ngModel)]='project.projectName' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Descriptions" [(ngModel)]='project.projectDescription' name='descriptions'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Location" [(ngModel)]='project.projectLocation' name='location'>
+  </mat-form-field>
+
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Init Date" [(ngModel)]='project.projectInitDate' name='init'>
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Init Date"
+           [(ngModel)]='project.projectInitDate' name='init'>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br>
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="End Date" [(ngModel)]='project.projectEndDate' name='end'>
+  </mat-form-field> -->
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker2" placeholder="End Date"
+             [(ngModel)]='project.projectEndDate' name='end'>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field><br>
+
+
+
+  <mat-checkbox [(ngModel)]="project.activate" name='activo'>Activated</mat-checkbox>
+  <!-- <mat-form-field class="example-full-width">
+      <mat-checkbox [(ngModel)]="project.activate" name='activo'>Checked</mat-checkbox>
+    </mat-form-field> -->
+
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button (click)="goBack()" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="update()" class="background-primary text-floral-white" id='updateProject'>UPDATE</button>
+  </mat-toolbar>
+</div>
+<br>

@@ -1,0 +1,19 @@
+<nav>
+
+    <a>
+        <button mat-button color="primary" [routerLink]="'/security-issues/incident'">
+          Incidents
+        </button>
+      </a>
+      <a>
+      <button mat-button color="primary" [routerLink]="'/security-issues/affliction'">
+        Affliction
+      </button>
+    </a>
+    <button mat-button color="primary" [routerLink]="'/security-issues/accident'" id="btnAccident">
+      Accident
+    </button>
+
+  </nav>
+
+  <router-outlet></router-outlet>

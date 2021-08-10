@@ -1,0 +1,93 @@
+<mat-toolbar color="primary">
+  <span><img src="../../assets/images/safetylogo.png" height=30 width=41></span>
+  <a mat-button routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
+
+   <!-- Human resources -->
+   <button mat-button [matMenuTriggerFor]="resources"><span class="fa fa-list fa-lg"></span> Human Resouces</button>
+   <mat-menu #resources="matMenu">
+      <a mat-button routerLink="/employee"><span class="fa fa-user fa-lg"></span> Employees</a><br>
+      <a mat-button routerLink="/positions"><span class="fa fa-list fa-lg"></span>Positions</a><br>
+     <a mat-button routerLink="/functionManuals"><span class="fa fa-list fa-lg"></span>Functional Manual</a><br>
+     <a mat-button routerLink="/contracts"><span class="fa fa-list fa-lg"></span>Contracts</a><br>
+   </mat-menu>
+
+   <!-- Security issues-->
+   <button mat-button [matMenuTriggerFor]="issues"><span class="fa fa-plus-square fa-lg"></span> Security Issues</button>
+ <mat-menu #issues="matMenu">
+    <a mat-button routerLink="/accidentRegistry"><span class="fa fa-list fa-lg"></span> Accident</a><br>
+    <a mat-button routerLink="/affliction"><span class="fa fa-plus-square fa-lg"></span> Afflicion</a><br>
+    <a mat-button routerLink="/incident"><span class="fa fa-plus-square fa-lg"></span> Incident</a><br>
+ </mat-menu>
+
+ <!-- catalogs -->
+ <button mat-button [matMenuTriggerFor]="catalogs"><span class="fa fa-list fa-lg"></span> Catalogs</button>
+ <mat-menu #catalogs="matMenu">
+     <a mat-button routerLink="/catalog"><span class="fa fa-list fa-lg"></span> Items Catalog</a><br>
+     <a mat-button routerLink="/afflictionCatalog"><span class="fa fa-list fa-lg"></span>Afflictions Catalog</a><br>
+     <a mat-button routerLink="/incidentCatalog"><span class="fa fa-list fa-lg"></span>Incident Catalog</a><br>
+     <a mat-button routerLink="/catalogFI"><span class="fa fa-list fa-lg"></span> CatalogFI</a><br>
+     <a mat-button routerLink="/catalogNI"><span class="fa fa-list fa-lg"></span> CatalogNI</a><br>
+     <a mat-button routerLink="/catalogTD"><span class="fa fa-list fa-lg"></span> CatalogTD</a><br>
+     <a mat-button routerLink="/catalogUA"><span class="fa fa-list fa-lg"></span> CatalogUA</a><br>
+     <a mat-button routerLink="/catalogUC"><span class="fa fa-list fa-lg"></span> CatalogUC</a><br>
+     <a mat-button routerLink="/machineryCatalog"><span class="fa fa-list fa-lg"></span>machinery Catalog</a><br>
+ </mat-menu>
+
+ <!-- Machinery -->
+ <button mat-button [matMenuTriggerFor]="machinery"><span class="fa fa-list fa-lg"></span> Machinery</button>
+ <mat-menu #machinery="matMenu">
+    <a mat-button routerLink="/machinery"><span class="fa fa-list fa-lg"></span>machinery </a><br>
+    <a mat-button routerLink="/maintenance"><span class="fa fa-list fa-lg"></span>machinery maintenance </a><br>
+    <a mat-button routerLink="/asignationMachinery"><span class="fa fa-list fa-lg"></span>Machinery Asignation </a><br>
+
+ </mat-menu>
+
+ <!-- Security items -->
+  <button mat-button [matMenuTriggerFor]="secitems"><span class="fa fa-list fa-lg"></span> Security Items</button>
+ <mat-menu #secitems="matMenu">
+    <a mat-button routerLink="/category"><span class="fa fa-list fa-lg"></span> Categorys</a><br>
+    <a mat-button routerLink="/subcategory"><span class="fa fa-list fa-lg"></span> Subcategories</a><br>
+    <a mat-button routerLink="/itemlist"><span class="fa fa-list fa-lg"></span> Items</a><br>
+    <a mat-button routerLink="/itemasiglist"><span class="fa fa-list fa-lg"></span> Items Asignation</a><br>
+
+ </mat-menu>
+
+ <!-- Projects -->
+ <button mat-button [matMenuTriggerFor]="projects"><span class="fa fa-list fa-lg"></span> Projects</button>
+ <mat-menu #projects="matMenu">
+    <a mat-button routerLink="/project"><span class="fa fa-list fa-lg"></span> Project</a><br>
+    <a mat-button routerLink="/asignationProject"><span class="fa fa-list fa-lg"></span> Project Asignation</a><br>
+ </mat-menu>
+
+ <!-- Reports -->
+ <button mat-button [matMenuTriggerFor]="reports"><span class="fa fa-list fa-lg"></span> Reports</button>
+ <mat-menu #reports="matMenu">
+   <a mat-button routerLink="/auditoryHistory"><span class="fa fa-list fa-lg"></span> Auditory</a><br>
+   <a mat-button routerLink="/positionFunction"><span class="fa fa-list fa-lg"></span>Function Manual by Positions</a><br>
+   <a mat-button routerLink="/reportes"><span class="fa fa-list fa-lg"></span> DWReporte</a>
+ </mat-menu>
+
+  <!-- about -->
+  <button mat-button [matMenuTriggerFor]="about"><span class="fa fa-info fa-lg"></span> About</button>
+  <mat-menu #about="matMenu">
+    <a mat-button routerLink="/about"><span class="fa fa-info fa-lg"></span> About</a><br>
+    <a mat-button routerLink="/contact"><span class="fa fa-address-card fa-lg"></span> Contact</a><br>
+  </mat-menu>
+
+  <span class="flex-spacer"></span>
+  <a mat-button (click)="logout()"><span class="fa fa-sign-in fa-lg"></span> Logout</a>
+
+</mat-toolbar>
+
+<div class="container jumbotron"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.xs="start center"
+     fxLayoutAlign.sm="start center"
+     fxLayoutAlign.gt-sm="center center"
+     fxLayoutGap="10px">
+
+
+  <div fxFlex></div>
+</div>

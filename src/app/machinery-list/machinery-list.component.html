@@ -1,0 +1,64 @@
+<h1>Machinery List</h1>
+<table mat-table [dataSource]="machineryList" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Label Column -->
+  <ng-container matColumnDef="label">
+    <th mat-header-cell *matHeaderCellDef> Label </th>
+    <td mat-cell *matCellDef="let element" id="label"> {{element.machineryLabel}} </td>
+  </ng-container>
+
+  <!-- Employee Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.machineryName}} </td>
+  </ng-container>
+  <!-- Employee Column -->
+  <ng-container matColumnDef="active">
+      <th mat-header-cell *matHeaderCellDef> Brand </th>
+      <td mat-cell *matCellDef="let element"> {{element.machineryBrand}} </td>
+    </ng-container>
+
+ <!-- View Column -->
+ <ng-container matColumnDef="view">
+  <th mat-header-cell *matHeaderCellDef> Detail </th>
+  <td mat-cell *matCellDef="let element">
+    <a mat-icon-button href [routerLink]="'/machinery/view/' + element.id">
+      <mat-icon aria-label="Editar">assignment</mat-icon>
+    </a>
+  </td>
+</ng-container>
+
+<ng-container matColumnDef="edit">
+  <th mat-header-cell *matHeaderCellDef> Edit </th>
+  <td mat-cell *matCellDef="let element">
+     <a mat-icon-button href [routerLink]="'/machinery/edit/' + element.id">
+      <mat-icon aria-label="Eliminar">edit</mat-icon></a>
+   </td>
+</ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Create New -->
+<br>
+<div><th><button mat-button routerLink="/machinery/create" class="background-primary text-floral-white">
+  REGISTRATE NEW MACHINERY</button></th>
+ 
+     <div fxFlex align="center"> <th>
+          <mat-form-field class="example-full-width">
+              <mat-select placeholder="Select Mounth" [(ngModel)]="mountt.id" name='projec'>
+                  <mat-option *ngFor="let mount of mounts" [value]="mount.id">
+                      {{ mount.nombreMes}}
+                    </mat-option>
+              </mat-select>
+            </mat-form-field>
+          <button mat-button (click)=getmounth() class="background-primary text-floral-white">
+            VIEW REPORT MACHINERY</button> 
+          </th></div> 
+</div><br>
+
+

@@ -1,0 +1,53 @@
+<h1>Machinery Catalog List</h1>
+<br>
+<div><button mat-button routerLink="/machineryCatalog/create" class="background-primary text-floral-white">
+  REGISTRATE NEW MACHINERYCATALOG</button>
+</div><br>
+<table mat-table [dataSource]="machineryCatalogList" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Label Column -->
+  <ng-container matColumnDef="label">
+    <th mat-header-cell *matHeaderCellDef> Label </th>
+    <td mat-cell *matCellDef="let element"> {{element.machinerycatalogLabel}} </td>
+  </ng-container>
+
+  <!-- Type Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.machinerycatalogName}} </td>
+  </ng-container>
+
+  <!-- Employee Column -->
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.machinerycatalogDescription}} </td>
+  </ng-container>
+ 
+ <!-- View Column -->
+ <ng-container matColumnDef="view">
+  <th mat-header-cell *matHeaderCellDef> Detail </th>
+  <td mat-cell *matCellDef="let element">
+    <a mat-icon-button href [routerLink]="'/machineryCatalog/view/' + element.id">
+      <mat-icon aria-label="Editar">assignment</mat-icon>
+    </a>
+  </td>
+</ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef> Edit </th>
+    <td mat-cell *matCellDef="let element">
+       <a mat-icon-button href [routerLink]="'/machineryCatalog/edit/' + element.id">
+        <mat-icon aria-label="Editar">edit</mat-icon></a>
+     </td>
+  </ng-container>
+     
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<!-- Create New -->
+
+

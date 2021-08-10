@@ -1,0 +1,78 @@
+<h1 class="title">Update item</h1>
+
+<form class="register-form" novalidate #loginForm="ngForm">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Label" [(ngModel)]='items.label' name='label' #itemlabel="ngModel" id="label" required>
+    <mat-hint>
+          <span [hidden]="itemlabel.pristine">
+            <span [hidden]="!itemlabel.errors?.required">Label of item is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of item" [(ngModel)]='items.name' name='name' #itemname="ngModel" id="name"
+           pattern="[A-Za-z ]+" required>
+    <mat-hint>
+          <span [hidden]="itemname.pristine">
+            <span [hidden]="!itemname.errors?.required">Name of item is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" [(ngModel)]='items.description' name='description' id="description"
+           #itemdescription="ngModel" required>
+    <mat-hint>
+          <span [hidden]="itemdescription.pristine">
+            <span [hidden]="!itemdescription.errors?.required">Description of item is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='items.code' name='code' #itemcode="ngModel" id="code" required>
+    <mat-hint>
+          <span [hidden]="itemcode.pristine">
+            <span [hidden]="!itemcode.errors?.required">Code of item is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Price" [(ngModel)]='items.price' name='price' type="number" #itemprice="ngModel"
+           id="price"
+           required>
+    <mat-hint>
+          <span [hidden]="itemprice.pristine">
+            <span [hidden]="!itemprice.errors?.required">Price of item is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="State" [(ngModel)]='items.state' name='state' #itemstate="ngModel" pattern="[A-Za-z ]+"
+           id="state"
+           required>
+    <mat-hint>
+          <span [hidden]="itemstate.pristine">
+            <span [hidden]="!itemstate.errors?.required">State of item is required</span>
+          </span>
+    </mat-hint>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Subcategory " [(ngModel)]="items.subCategoryId" name='subcategory' id="subcategory">
+      <mat-option *ngFor="let subcategory of subcategorys" [value]="subcategory.idSub">
+        {{ subcategory.nameSub}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/itemlist" class="background-primary text-floral-white" id="backItem">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="edit()" class="background-primary text-floral-white" id="updateItem"
+            [disabled]="loginForm.form.invalid">UPDATE ITEM
+    </button>
+
+  </mat-toolbar>
+</div>
+<br>

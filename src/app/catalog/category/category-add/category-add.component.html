@@ -1,0 +1,46 @@
+<mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+  <div fxFlex>
+    ADD Category
+  </div>
+  <span fxFlex class="flex-spacer"></span>
+  <div fxFlex align="end">
+    <button mat-button mat-dialog-close>&times;</button>
+  </div>
+</mat-toolbar>
+
+<!--p>{{category | json}}</p-->
+<form novalidate #loginForm="ngForm">
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <input matInput [(ngModel)]="category.nameCategory"
+               type="text" id="name"
+               placeholder="NameCategory" name="name" #categoryname="ngModel" pattern="[A-Za-z ]+" required>
+        <mat-hint>
+          <span [hidden]="categoryname.pristine">
+            <span [hidden]="!categoryname.errors?.required">Name of category is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="category.code"
+               type="text" id="code"
+               placeholder="CodeCategory" name="code" #categorycode="ngModel" required>
+        <mat-hint>
+          <span [hidden]="categorycode.pristine">
+            <span [hidden]="!categorycode.errors?.required">Code of category is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close id="cancelCategory">Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white" id="enviarCategory"
+            [disabled]="loginForm.form.invalid" (click)="onSubmit()">Enviar
+    </button>
+  </mat-dialog-actions>
+
+</form>
+

@@ -1,0 +1,102 @@
+<h2 id="windowTitle" mat-dialog-title>{{title}}</h2>
+
+<form class="employee-form" #employeeForm="ngForm">
+  <p *ngIf="mode == formMode.VIEW">
+    <mat-slide-toggle (change)="onActivateEdit($event)">Edit Details</mat-slide-toggle>
+  </p>
+
+  <table class="employee-field-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="employee-field-width">
+          <input id="firstName" matInput placeholder="First name" [(ngModel)]="employee.firstName" name="firstname" [disabled]="readOnlyMode" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="employee-field-width">
+          <input id="lastName" matInput placeholder="Last name" [(ngModel)]="employee.lastName" name="lastname" [disabled]="readOnlyMode" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="employee-field-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="employee-field-width">
+          <input id="ci" matInput placeholder="CI" name="ci" [(ngModel)]="employee.ci" [disabled]="readOnlyMode" required>
+          <mat-error>This field is required</mat-error>
+        </mat-form-field>
+      </td>
+      <td *ngIf="mode !== formMode.ADD">
+        <mat-form-field class="employee-field-width">
+          <mat-select *ngIf="employee.position && (mode == formMode.VIEW || mode === formMode.EDIT)" name="position" placeholder="Position" disabled="true" [(value)]="employee.position.positionName">
+            <mat-option *ngFor="let p of positions" [value]="p.positionName">
+              {{ p.positionName }}
+            </mat-option>
+          </mat-select>
+
+          <mat-select *ngIf="!employee.position" placeholder="Position">
+            <mat-option *ngFor="let p of positions" [value]="p.positionName">
+              {{ p.positionName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <p>
+    <mat-radio-group name="gender" [(ngModel)]="employee.gender">
+      <mat-radio-button id="male" name="male" value="male" [disabled]="readOnlyMode">Male</mat-radio-button>
+      <mat-radio-button id="female" name="female" value="female" [disabled]="readOnlyMode">Female</mat-radio-button>
+    </mat-radio-group>
+  </p>
+
+  <p>
+    <mat-form-field class="employee-field-width">
+      <input id="address" matInput placeholder="Address" name="address" [(ngModel)]="employee.address" [disabled]="readOnlyMode">
+    </mat-form-field>
+  </p>
+
+  <table class="employee-field-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="employee-field-width">
+            <input id="birthDate"
+                  matInput name="birthDate"
+                  [min]="minDate"
+                  [max]="maxDate"
+                  [matDatepicker]="birthDate"
+                  placeholder="Birth Date"
+                  [(ngModel)]="birthDateObject"
+                  (dateInput)="changeDate('input', $event)"
+                  (dateChange)="changeDate('change', $event)"
+                  [disabled]="readOnlyMode" required>
+            <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+            <mat-datepicker #birthDate></mat-datepicker>
+            <mat-error>This field is required</mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="employee-field-width">
+            <span matPrefix>+591 &nbsp;</span>
+            <input id="phone" matInput type="number" placeholder="Phone" name="phone" [(ngModel)]="employee.phone" [disabled]="readOnlyMode">
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+</form>
+
+<mat-dialog-actions *ngIf="!readOnlyMode" [attr.align]="'end'">
+  <button id="buttonClose" mat-button mat-dialog-close color="secondary">Close</button>
+  <button id="buttonSave" mat-raised-button color="primary" (click)="saveAction(employee)" [disabled]="!employeeForm.form.valid">Save</button>
+</mat-dialog-actions>
+
+<mat-dialog-actions *ngIf="readOnlyMode" [attr.align]="'end'">
+  <button id="buttonClose" mat-raised-button mat-dialog-close color="primary">Close</button>
+</mat-dialog-actions>
+

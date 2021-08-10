@@ -1,0 +1,69 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <h1 class="title">Function Manual Details</h1>
+</div>
+
+<!-- <div>
+  {{functionManual|json}}
+</div>
+ -->
+<div class="container"
+fxLayout="row"
+fxLayout.sm="column"
+fxLayout.xs="column"
+fxLayoutAlign.gt-md="space-around center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0">
+<div fxFlex fxFlex.gt-sm="10%">
+    <img src="../../assets/images/functManual.png" alt="Logo" width="180" height="200">
+  </div>
+<div fxFlex="50">
+
+<div fxFlex *ngIf="functionManual">
+
+  <mat-card>
+   <mat-card-title-group>
+     <mat-card-title>
+        <h3>Functional Manual Name: {{functionManual.functionalmanualName | uppercase}}</h3>
+     </mat-card-title>
+   </mat-card-title-group>
+   <h3>Description:</h3>
+   <mat-card-content>
+     <p>
+       {{functionManual.functionalmanualDescription}}
+     </p>
+   </mat-card-content>
+   <h3>Functional Manual Code:</h3>
+   <mat-card-content>
+     <p>{{functionManual.functionalmanualCode}}
+     </p>
+   </mat-card-content>
+   <h3>Manual Function URL:</h3>
+   <mat-card-content>
+    <p>{{functionManual.functionalmanualUrl}}
+    </p>
+  </mat-card-content>
+  <h3>Position Associated:</h3>
+   <mat-card-content>
+    <p>{{functionManual.positionCommand.positionName}}
+    </p>
+  </mat-card-content>
+  <h3>Organitational Level:</h3>
+  <mat-card-content>
+    <p>{{functionManual.organitationalLevel}}
+    </p>
+  </mat-card-content>
+  <h3>Education Level:</h3>
+  <mat-card-content>
+    <p>{{functionManual.educationLevel}}
+    </p>
+  </mat-card-content>
+   <mat-card-actions align="start">
+      <button mat-button (click)="goBack()" class="background-primary text-floral-white">BACK</button>
+      <button mat-button routerLink="/functionManualUpdate/{{functionManual.id}}" class="background-primary text-floral-white">Update</button>
+      <button mat-button (click)="deletePosition(functionManual.id, functionManual.functionalmanualName)" class="background-primary text-floral-white">Delete</button>
+   </mat-card-actions>
+ </mat-card>
+</div>
+</div>
+</div>

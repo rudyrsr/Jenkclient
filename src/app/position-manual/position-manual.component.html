@@ -1,0 +1,60 @@
+<!--  <div>
+  {{functionalManuals|json}}
+</div>
+<div>{{positions|json}}</div>  -->
+
+<h1>Functional Manuals with filters</h1>
+
+<div class="mat-elevation-z8">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="funcitionalManual">
+        <th mat-header-cell *matHeaderCellDef> funcitional Manual </th>
+        <td mat-cell *matCellDef="let element"> {{element.functionalmanualName}} </td>
+      </ng-container>
+
+            
+      <ng-container matColumnDef="positionId">
+          <th mat-header-cell *matHeaderCellDef> Position ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.positionCommand.id}} </td>
+        </ng-container>
+    
+        
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> Position </th>
+          <td mat-cell *matCellDef="let element"> {{element.positionCommand.positionName}} </td>
+        </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+  
+
+  <!-- 
+      <ng-container matColumnDef="view">
+          <th mat-header-cell *matHeaderCellDef> View Position </th>
+          <td mat-cell *matCellDef="let element">
+            <a mat-icon-button href [routerLink]="'/positionDetail/' + element.id">
+              <mat-icon aria-label="Editar">assignment</mat-icon>
+            </a>
+          </td>
+        </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <button mat-button routerLink="/positionNew" class="background-primary text-floral-white">CREATE New Position</button>
+   -->
+
+  

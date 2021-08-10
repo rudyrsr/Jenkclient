@@ -1,0 +1,103 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex="80">
+    <div>
+      <h3>Item List</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex="20">
+    <button mat-raised-button id="additem" (click)="openItemForm()">ADD ITEM</button>
+  </div>
+  <div fxFlex>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.id}}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{element.name}}</td>
+      </ng-container>
+
+      <!-- Label Column -->
+      <ng-container matColumnDef="label">
+        <th mat-header-cell *matHeaderCellDef> Label</th>
+        <td mat-cell *matCellDef="let element"> {{element.label}}</td>
+      </ng-container>
+
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}}</td>
+      </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price</th>
+        <td mat-cell *matCellDef="let element"> {{element.price}}</td>
+      </ng-container>
+
+      <!-- Code Column -->
+      <ng-container matColumnDef="code">
+        <th mat-header-cell *matHeaderCellDef> Code</th>
+        <td mat-cell *matCellDef="let element"> {{element.code}}</td>
+      </ng-container>
+
+      <!-- State Column -->
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> State</th>
+        <td mat-cell *matCellDef="let element"> {{element.state}}</td>
+      </ng-container>
+
+      <!-- subCategoryId Column -->
+      <ng-container matColumnDef="subCategoryId">
+        <th mat-header-cell *matHeaderCellDef> SubCategoryId</th>
+        <td mat-cell *matCellDef="let element"> {{element.subCategoryId}}</td>
+      </ng-container>
+
+      <!-- Action UPDATE -->
+      <ng-container matColumnDef="updated">
+        <th mat-header-cell *matHeaderCellDef> UPDATE</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button href [routerLink]="'/itemlist/updated/' + element.id"
+                  [id]="'updateItem' + element.id">UPDATE ITEM
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Action DELETE -->
+      <ng-container matColumnDef="deleted">
+        <th mat-header-cell *matHeaderCellDef> DELETE</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button (click)="deleteItem(element.id)" routerLink="/itemlist"
+                  [id]="'deleteItem' + element.id">DELETE
+            ITEM
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Cargar Image -->
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> LOAD IMAGE</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button href [routerLink]="'/itemlist/updatedImage/' + element.id">LOAD IMAGE</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+
+</div>
+
+

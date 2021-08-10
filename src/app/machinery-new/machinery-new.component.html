@@ -1,0 +1,51 @@
+<h1 class="title">Registrate New Machinery</h1>
+
+<form class="register-form" novalidate #loginForm="ngForm" >
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='machinery.machineryCode' name='code'>
+  </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of Machinery" [(ngModel)]='machinery.machineryName' name='name' pattern="[A-Za-z-_ ]+" required>
+    <mat-error>this field only accepts letters</mat-error><br>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Brand" [(ngModel)]='machinery.machineryBrand' name='brand' required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Preci" [(ngModel)]='machinery.machineryPrice' name='preci'required pattern="[0-9.-]+">
+    <mat-error>this field only accepts number</mat-error><br>
+
+  </mat-form-field>
+
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Date" [(ngModel)]='machinery.machineryDateBuy' name='date'>
+  </mat-form-field> -->
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="machinery Date"
+           [(ngModel)]='machinery.machineryDateBuy' name='Date' required >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-select placeholder="Catalog" [(ngModel)]='machinery.machineryCatalogId' name='cataloge'>
+      <mat-option *ngFor="let catalog of catalogList" [value]="catalog.id">
+        {{ catalog.machinerycatalogName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/construction-machinery/machinery" class="background-primary text-floral-white">BACK</button><br>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button  [disabled]="loginForm.form.invalid"  (click)="create()" class="background-primary text-floral-white" id="create">CREATE</button>
+
+  </mat-toolbar>
+</div>
+<br>

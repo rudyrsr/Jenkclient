@@ -1,0 +1,44 @@
+<h1 class="title">Registrate New Committe Ocupational</h1>
+
+<form class="register-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name" [(ngModel)]='project.name' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='project.code' name='code'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Responsable" [(ngModel)]='project.responsable' name='Responsable'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Means" [(ngModel)]='project.means' name='Means'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Goal SO" [(ngModel)]='project.goalSO' name='goal'>
+  </mat-form-field>
+  
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Cost" [(ngModel)]='project.cost' name='Cost'>
+  </mat-form-field>
+
+
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Term" [(ngModel)]='project.Term' name='Term'>
+  </mat-form-field> -->
+
+  
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/commitedOcupational" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="create()" class="background-primary text-floral-white">CREATE</button>
+
+  </mat-toolbar>
+</div>
+<br>

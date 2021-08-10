@@ -1,0 +1,79 @@
+<h1 class="title">Registrate New Accident</h1>
+
+<form class="register-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='accident.accidentCode' name='CodeAcc'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Description" [(ngModel)]='accident.accidentDescription' name='Description'>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Supervisor" [(ngModel)]='accident.accidentSupervisor' name='Supervisor'>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Medical Center" [(ngModel)]='accident.accidentMedicalCenter' name='Center'>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Witness" [(ngModel)]='accident.accidentWitness' name='witness'>
+          </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Place" [(ngModel)]='accident.accidentPlace' name='place'>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="Code Registracion" [(ngModel)]='accident.accidentRegistrationCode' name='Registracion'>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Disability Day" [(ngModel)]='accident.accidentDisabilityDay' name='Disability'>
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                  <mat-select placeholder="injury factor" [(ngModel)]="accident.catalogFI_id" name='factor'>
+                    <mat-option *ngFor="let catalogFI of catalogFIList" [value]="catalogFI.id">
+                      {{ catalogFI.catalogFIName }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                      <mat-select placeholder="Natural injury" [(ngModel)]="accident.catalogNI_id" name='Natural'>
+                        <mat-option *ngFor="let catalogNI of catalogNIList" [value]="catalogNI.id">
+                          {{ catalogNI.catalogNIName }}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <mat-select placeholder="Type of Disability" [(ngModel)]="accident.catalogTD_id" name='Disability'>
+                          <mat-option *ngFor="let catalogTD of catalogTDList" [value]="catalogTD.id">
+                            {{ catalogTD.catalogTDName }}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                          <mat-select placeholder="Insecure Act" [(ngModel)]="accident.catalogUA_id" name='Act'>
+                            <mat-option *ngFor="let catalogUA of catalogUAList" [value]="catalogUA.id">
+                              {{ catalogUA.catalogUAName }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-select placeholder="Insecure Condition" [(ngModel)]="accident.catalogUC_id" name='Condition'>
+                              <mat-option *ngFor="let catalogUC of catalogUCList" [value]="catalogUC.id">
+                                {{ catalogUC.catalogUCName }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/accidentRegistry" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="create()" class="background-primary text-floral-white" id="btnNextAcc">NEXT</button>
+  </mat-toolbar>
+</div>
+<br>
+<p>
+  Accident--Registracion!
+</p>

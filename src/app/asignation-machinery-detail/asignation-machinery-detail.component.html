@@ -1,0 +1,45 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <h1>Asigantion Machinery Detail</h1>
+</div>
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div fxFlex fxFlex.gt-sm="20%">
+    <img src="../../assets/images/images.png" alt="Logo" width="200" height="200">
+  </div>
+  <div fxFlex *ngIf="asignationMachinery">
+    <mat-card>
+      <mat-card-content>
+        <table>
+          <th align="right">
+              <h3>DESCRIPTION :</h3>
+              <h3> NAME MACHINERY :</h3>
+              <h3>NAME EMPLOYEE :</h3>
+              <h3>REGISTRTION DATE :</h3>
+            </th>
+            <th align="left">
+              <h3>- {{asignationMachinery.description}}</h3>
+              <h3>- {{asignationMachinery.machineryCM.machineryName}}</h3>
+              <h3>- {{asignationMachinery.employeeCE.name}}</h3>
+              <h3>- {{asignationMachinery.createdOn | date}}</h3>
+             </th>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+      <div fxFlex>
+        <button mat-button (click)="goBack()">BACK</button>
+      </div>
+
+      <span fxFlex class="flex-spacer"></span>
+      <div fxFlex align="center">
+        <!-- <button mat-button (click)="goBack()">UPDATE</button> -->
+      </div>
+      <span fxFlex class="flex-spacer"></span>
+      <a mat-button (click)="deleteToAsignation(asignationMachinery.id,
+      asignationMachinery.machineryCM.machineryName,
+      asignationMachinery.employeeCE.name )"><span class="fa fa-minus-square"></span> DELETE</a>
+
+    </mat-toolbar>
+  </div>
+</div>

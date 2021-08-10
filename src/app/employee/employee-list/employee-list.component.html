@@ -1,0 +1,62 @@
+<button id="buttonAdd" mat-fab (click)="add()">
+    <mat-icon>add</mat-icon>
+  </button>
+
+<div class="container" fxLayout="row" style="display: block"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.xs="start center"
+     fxLayoutAlign.sm="start center"
+     fxLayoutAlign.gt-sm="center center"
+     fxLayoutGap="10px">
+
+  <div>
+    <h2 id="titleList">Employee List</h2>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="jobPosition">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Job Position </th>
+          <td mat-cell *matCellDef="let element"> {{element.position?.positionName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+
+            <button [id]="getIdButton('viewButton', element.position)" mat-icon-button (click)="view(element)">
+              <mat-icon>pageview</mat-icon>
+            </button>
+
+            <button [id]="getIdButton('editButton', element.position)" mat-icon-button (click)="edit(element)">
+                <mat-icon>edit</mat-icon>
+              </button>
+
+            <button [id]="getIdButton('deleteButton', element.position)" mat-icon-button (click)="delete(element)">
+              <mat-icon>delete</mat-icon>
+            </button>
+
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+
+</div>

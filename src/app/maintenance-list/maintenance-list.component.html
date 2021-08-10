@@ -1,0 +1,51 @@
+<h1>Machinery Maintenance List</h1>
+<table mat-table [dataSource]="maintenaceList" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Label Column -->
+  <ng-container matColumnDef="label">
+    <th mat-header-cell *matHeaderCellDef> Label </th>
+    <td mat-cell *matCellDef="let element"> {{element.maintenanceLabel}} </td>
+  </ng-container>
+
+  <!-- Label Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.machineryCMD.machineryName}} </td>
+  </ng-container>
+
+  <!-- Employee Column -->
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.maintenanceDescription}} </td>
+  </ng-container>
+ 
+  <!-- View Column -->
+  <ng-container matColumnDef="view">
+    <th mat-header-cell *matHeaderCellDef> Detail </th>
+    <td mat-cell *matCellDef="let element">
+      <a mat-icon-button href [routerLink]="'/maintenance/view/' + element.id">
+        <mat-icon aria-label="Details">assignment</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+    
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef> Edit </th>
+    <td mat-cell *matCellDef="let element">
+       <a mat-icon-button href [routerLink]="'/maintenance/edit/' + element.id">
+        <mat-icon aria-label="Editar">edit</mat-icon></a>
+     </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Create New -->
+<br>
+<div><button mat-button routerLink="/maintenance/create" class="background-primary text-floral-white">
+  REGISTRATE NEW MACHINERY MAINTENANCE</button>
+</div><br>

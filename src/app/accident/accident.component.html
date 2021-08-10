@@ -1,0 +1,86 @@
+<table mat-table [dataSource]="accidentlist" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="Code">
+    <th mat-header-cell *matHeaderCellDef> CODE </th>
+    <td mat-cell *matCellDef="let element"> {{element.accidentCode}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef>DESCRIPTION</th>
+    <td mat-cell *matCellDef="let element"> {{element.accidentDescription}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Supervisor">
+    <th mat-header-cell *matHeaderCellDef>SUPERVISOR</th>
+    <td mat-cell *matCellDef="let element"> {{element.accidentSupervisor}} </td>
+  </ng-container>
+  <ng-container matColumnDef="MedicalCenter">
+    <th mat-header-cell *matHeaderCellDef>MEDICAL CENTER</th>
+    <td mat-cell *matCellDef="let element"> {{element.accidentMedicalCenter}} </td>
+  </ng-container>
+  <ng-container matColumnDef="AccidentPlace">
+    <th mat-header-cell *matHeaderCellDef>PLACE</th>
+    <td mat-cell *matCellDef="let element"> {{element.accidentPlace}} </td>
+  </ng-container>
+  <ng-container matColumnDef="AccidentWitness">
+    <th mat-header-cell *matHeaderCellDef>WITNESS</th>
+    <td mat-cell *matCellDef="let element"> {{element.accidentWitness}} </td>
+  </ng-container>
+  <ng-container matColumnDef="AccidentDesabilityDay">
+    <th mat-header-cell *matHeaderCellDef>DESABILITY DAY</th>
+    <td mat-cell *matCellDef="let element"> {{element.accidentDisabilityDay}} </td>
+  </ng-container>
+  <ng-container matColumnDef="CatalogFI">
+    <th mat-header-cell *matHeaderCellDef>FACTOR INSEGURIDAD</th>
+    <td mat-cell *matCellDef="let element"> {{element.catalogFI.catalogFIName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="CatalogNI">
+    <th mat-header-cell *matHeaderCellDef>NATURALEZA INSEGURIDAD</th>
+    <td mat-cell *matCellDef="let element"> {{element.catalogNI.catalogNIName}} </td>
+  </ng-container>
+<ng-container matColumnDef="CatalogTD">
+  <th mat-header-cell *matHeaderCellDef>TIPO DISCAPACIDAD</th>
+  <td mat-cell *matCellDef="let element"> {{element.catalogTD.catalogTDName}} </td>
+</ng-container>
+<ng-container matColumnDef="CatalogUC">
+  <th mat-header-cell *matHeaderCellDef>CAUSA INSEGURA</th>
+  <td mat-cell *matCellDef="let element"> {{element.catalogUC.catalogUCName}} </td>
+</ng-container>
+  <ng-container matColumnDef="CatalogUA">
+    <th mat-header-cell *matHeaderCellDef>ACTO INSEGURO</th>
+    <td mat-cell *matCellDef="let element"> {{element.catalogUA.catalogUAName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="view">
+      <th mat-header-cell *matHeaderCellDef> View </th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-icon-button href [routerLink]="'/accident/view/' + element.id">
+          <mat-icon aria-label="Editar">assignment</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+  <!-- Edit Column -->
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef> Edit </th>
+    <td mat-cell *matCellDef="let element">
+      <a mat-icon-button href [routerLink]="'/accident/edit/' + element.id">
+        <mat-icon aria-label="Editar">mode_edit</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+
+  <!-- Delete Column -->
+  <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-icon-button href [routerLink]="'/accident/edit/' + element.id">
+          <mat-icon aria-label="Editar">delete</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

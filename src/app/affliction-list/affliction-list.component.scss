@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+
+[mat-fab] {
+position: absolute;
+right: 2%;
+top: 75px;
+z-index: 1;
+}

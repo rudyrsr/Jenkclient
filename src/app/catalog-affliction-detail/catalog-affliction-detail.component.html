@@ -1,0 +1,51 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <h1>Affliction Catalog Detail</h1>
+</div>
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div fxFlex fxFlex.gt-sm="20%">
+    <img src="../../assets/images/affliction.png" alt="Logo" width="200" height="200">
+  </div>
+  <div fxFlex *ngIf="afflictionCatalog">
+    <mat-card>
+      <mat-card-content>
+        <table>
+          <th align="right">
+            <h3>LABEL :</h3>
+            <h3>CODE :</h3>
+            <h3>NAME :</h3>
+            <h3>DESCRIPTION :</h3>
+
+          </th>
+          <th align="left">
+            <h3>- {{afflictionCatalog.afflictionCatalogLabel}}</h3>
+            <h3>- {{afflictionCatalog.afflictionCatalogCode}}</h3>
+            <h3>- {{afflictionCatalog.afflictionCatalogName}}</h3>
+            <h3>- {{afflictionCatalog.afflictionCatalogDescription}}</h3>
+          </th>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+      <div fxFlex>
+        <button mat-button (click)="goBack()">BACK</button>
+      </div>
+
+      <span fxFlex class="flex-spacer"></span>
+      <div fxFlex align="center">
+        <!-- edit -->
+          <button mat-button routerLink="/afflictionCatalog/edit/{{afflictionCatalog.id}}">UPDATE</button>
+      </div>
+      <span fxFlex class="flex-spacer"></span>
+      <a mat-button (click)="deleteToAfflictionCatalog(afflictionCatalog.id,
+                          afflictionCatalog.afflictionCatalogLabel,
+                          afflictionCatalog.afflictionCatalogName
+                          )"><span class="fa fa-minus-square"></span> DELETE</a>
+
+    </mat-toolbar>
+  </div>
+</div>
+
+
+

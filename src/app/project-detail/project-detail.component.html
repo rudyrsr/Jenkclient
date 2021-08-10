@@ -1,0 +1,59 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <h1>Project Detail</h1>
+</div>
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <div fxFlex fxFlex.gt-sm="20%">
+    <img src="../../assets/images/project.png" alt="Logo" width="200" height="200">
+  </div>
+  <div fxFlex *ngIf="project">
+    <mat-card>
+      <mat-card-content>
+
+        <table>
+          <th align="right">
+            <h3>LABEL :</h3>
+            <h3>NAME :</h3>
+            <h3>LOCATION :</h3>
+            <h3>DESCRIPTION</h3>
+            <h3>INIT DATE :</h3>
+            <h3>END DATE :</h3>
+            <h3>ACTIVATE :</h3>
+            <h3>EMPLOYEES :</h3>
+          </th>
+          <th align="left">
+            <h3 id='projectLabel'>- {{project.porjectLabel}}</h3>
+            <h3 id='projectName'>- {{project.projectName}}</h3>
+            <h3 id='projectLocation'>- {{project.projectLocation}}</h3>
+            <h3 id='projectDescription'>- {{project.projectDescription}}</h3>
+            <h3 id='projectInitDate'>- {{project.projectInitDate | date:'M/d/yyyy'}}</h3>
+            <h3 id='projectEndDate'>- {{project.projectEndDate | date:'M/d/yyyy'}}</h3>
+            <h3 id='projectActivate'>- {{project.activate}}</h3>
+            <h3 *ngFor="let employees of project.employees">
+                  <th >-Name : {{employees.name}}</th>
+                <span fxFlex class="flex-spacer"></span>
+                  <th>-Position : {{employees.position.positionName}}</th>
+                </h3>
+          </th>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+      <div fxFlex>
+        <button mat-button (click)="goBack()">BACK</button>
+      </div>
+
+      <span fxFlex class="flex-spacer"></span>
+      <div fxFlex align="center">
+        <!-- edit -->
+        <button mat-button routerLink="/project/edit/{{project.id}}" id='projectUpdate' >UPDATE</button>
+      </div>
+      <span fxFlex class="flex-spacer"></span>
+      <a mat-button (click)="deleteProject(project.id,
+      project.porjectLabel,
+      project.projectName)" id='deleteProject'><span class="fa fa-minus-square"></span> DELETE</a>
+
+    </mat-toolbar>
+  </div>
+</div>

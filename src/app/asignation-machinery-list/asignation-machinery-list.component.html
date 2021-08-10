@@ -1,0 +1,68 @@
+<h1>Asignation Machinery List</h1>
+
+<!-- Create New -->
+<br>
+<div><button mat-button routerLink="/asignationMachinery/create" class="background-primary text-floral-white">
+  REGISTRATE NEW MACHINERY ASSIGNMENT </button>
+</div>
+<br>
+
+<table mat-table [dataSource]="asignationMachineryList" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Label Column -->
+  <ng-container matColumnDef="namemachinery">
+    <th mat-header-cell *matHeaderCellDef> Name Machinery </th>
+    <td mat-cell *matCellDef="let element"> {{element.machineryCM.machineryName}} </td>
+  </ng-container>
+
+  <!-- Employee Column -->
+  <ng-container matColumnDef="nameemployee">
+    <th mat-header-cell *matHeaderCellDef> name employee </th>
+    <td mat-cell *matCellDef="let element"> {{element.employeeCE.name}} </td>
+  </ng-container>
+  <!-- init date Column -->
+  <ng-container matColumnDef="initdate">
+    <th mat-header-cell *matHeaderCellDef> Init Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.assignationInitDate | date}} </td>
+  </ng-container>
+  <!-- end date Column -->
+  <ng-container matColumnDef="enddate">
+    <th mat-header-cell *matHeaderCellDef> End Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.assignationEndDate | date}} </td>
+  </ng-container>
+
+  <!-- View Column -->
+  <!-- <ng-container matColumnDef="view">
+    <th mat-header-cell *matHeaderCellDef> Detail </th>
+    <td mat-cell *matCellDef="let element">
+      <a mat-icon-button href [routerLink]="'/asignationMachinery/view/' + element.id">
+        <mat-icon aria-label="Editar">assignment</mat-icon>
+      </a>
+    </td>
+  </ng-container>
+     -->
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef> Edit </th>
+    <td mat-cell *matCellDef="let element">
+       <a mat-icon-button href [routerLink]="'/asignationMachinery/edit/' + element.id">
+        <mat-icon aria-label="Editar">edit</mat-icon></a>
+     </td>
+  </ng-container>
+
+    <!-- delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+          <a mat-icon-button href [routerLink]="'/construction-machinery/asignationMachinery '" (click)="deleteAsignationMachinery(element.id)">
+            <mat-icon aria-label="Borrar">delete</mat-icon></a>
+       </td>
+    </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<br>

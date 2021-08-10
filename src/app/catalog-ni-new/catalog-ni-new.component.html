@@ -1,0 +1,24 @@
+<h1 class="title">Registrate New Catalog Natural Injury</h1>
+
+<form class="register-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Code" [(ngModel)]='catalogNI.catalogNICode' name='code'>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of catalog" [(ngModel)]='catalogNI.catalogNIName' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" [(ngModel)]='catalogNI.catalogNIDescription' name='observations'>
+  </mat-form-field>
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/catalogNI" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="create()" class="background-primary text-floral-white">CREATE</button>
+
+  </mat-toolbar>
+</div>
+<br>

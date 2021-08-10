@@ -1,0 +1,29 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+  <nav>
+    <a>
+      <button mat-button color="primary" [routerLink]="'/security-items/categories'" id="categories">
+        Categories
+      </button>
+    </a>&nbsp;
+    <a>
+      <button mat-button color="primary" [routerLink]="'/security-items/subcategories'" id="subcategories">
+        Subcategories
+      </button>
+    </a>&nbsp;
+    <a>
+      <button mat-button color="primary" [routerLink]="'/security-items/items'" id="items">
+        Items
+      </button>
+    </a>&nbsp;
+    <a>
+      <button mat-button color="primary" [routerLink]="'/security-items/itemsasignation'" id="itemsAsig">
+        Items Asignation
+      </button>
+    </a>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>
+

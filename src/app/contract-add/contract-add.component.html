@@ -1,0 +1,40 @@
+<!-- <div>
+{{positions|json}}
+</div>
+<div>
+  {{employees|json}}
+</div> -->
+
+ <h1 class="title">Register new Contract</h1>
+
+
+ <form class="register-form">
+    
+   <mat-form-field class="example-full-width">
+     <mat-select placeholder="Employee" [(ngModel)]="contract.employeeId" name='employee'>
+       <mat-option *ngFor="let employee of employees" [value]="employee.id">
+         {{ employee.name }}
+       </mat-option>
+     </mat-select>
+   </mat-form-field> 
+   <mat-form-field class="example-full-width">
+    <mat-select placeholder="Position" [(ngModel)]="contract.positionId" name='Position'>
+      <mat-option *ngFor="let position of positions" [value]="position.id">
+        {{ position.positionName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field> 
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Contract Description" [(ngModel)]='contract.contractDescription' name='description'>
+  </mat-form-field>
+ </form>
+ <br>
+ <div>
+   <mat-toolbar class="boton">
+     <button mat-button routerLink="/contracts" class="background-primary text-floral-white">BACK</button>
+     <span fxFlex class="flex-spacer"></span>
+     <button mat-button (click)="addContract()" class="background-primary text-floral-white">CREATE</button>
+   </mat-toolbar>
+ </div>
+ <br>
+ 

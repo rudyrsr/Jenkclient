@@ -1,0 +1,32 @@
+<h1 class="title">Registrate New MachineryCatalog</h1>
+
+<form class="register-form" novalidate #loginForm="ngForm" >
+
+  <!-- <mat-form-field class="example-full-width">
+      
+    <input matInput placeholder="Code" [(ngModel)]='machineryCatalog.machinerycatalogCod' name='code'>
+  </mat-form-field> -->
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name of MachineryCatalog" [(ngModel)]='machineryCatalog.machinerycatalogName' name='name' pattern="[A-Za-z]+" required>
+    <mat-error>this field only accepts letters</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Characteristics" [(ngModel)]='machineryCatalog.characteristics' name='brand'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Description" [(ngModel)]='machineryCatalog.machinerycatalogDescription' name='preci'>
+  </mat-form-field>
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/catalogs/machineryCatalog" class="background-primary text-floral-white">BACK</button><br>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button  [disabled]="loginForm.form.invalid"  (click)="create()" class="background-primary text-floral-white">CREATE</button>
+
+  </mat-toolbar>
+</div>
+<br>

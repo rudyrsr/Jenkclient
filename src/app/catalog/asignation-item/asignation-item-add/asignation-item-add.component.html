@@ -1,0 +1,76 @@
+<mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+  <div fxFlex>
+    ADD Item Asignation
+  </div>
+  <span fxFlex class="flex-spacer"></span>
+  <div fxFlex align="end">
+    <button mat-button mat-dialog-close>&times;</button>
+  </div>
+</mat-toolbar>
+
+<!--p>{{itemasignation| json}}</p-->
+<form novalidate #loginForm="ngForm">
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <input matInput [(ngModel)]="itemasignation.initDateIA"
+               type="date" id="initDate"
+               placeholder="InitDate" name="initdate" #initdate="ngModel" min='2000-01-01' max={{parte}} required>
+        <mat-hint>
+          <span [hidden]="initdate.pristine">
+            <span [hidden]="!initdate.errors?.required">Init Date of itemAsignation is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="itemasignation.endDateIA"
+               type="date" id="endDate"
+               placeholder="EndDate" name="enddate" #enddate="ngModel" min={{parte}} max="2030-12-12">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Item" [(ngModel)]="itemasignation.itemId" name='iditem' id="itemId" required>
+          <mat-option *ngFor="let item of items" [value]="item.id">
+            {{ item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Employee " [(ngModel)]="itemasignation.employeeId" name='sub' id="employeeId" required>
+          <mat-option *ngFor="let employeee of employeess" [value]="employeee.id">
+            {{ employeee.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="itemasignation.description"
+               type="text" id="description"
+               placeholder="Description" name="description" #description="ngModel" required>
+        <mat-hint>
+          <span [hidden]="description.pristine">
+            <span [hidden]="!description.errors?.required">Description of itemAsignation is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="itemasignation.stateActual"
+               type="text" id="stateActual"
+               placeholder="StateActualItem" name="stateactual" #stateactual="ngModel" pattern="[A-Za-z ]+" required>
+        <mat-hint>
+          <span [hidden]="stateactual.pristine">
+            <span [hidden]="!stateactual.errors?.required">State actual of item asignation is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close id="cancelItemAsig">Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white" id="enviarIA"
+            [disabled]="loginForm.form.invalid" (click)="onSubmit()">Enviar
+    </button>
+  </mat-dialog-actions>
+
+</form>
+
+

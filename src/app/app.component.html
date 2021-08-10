@@ -1,0 +1,7 @@
+<code-login *ngIf="activeSession === false" codeBackground></code-login>
+
+<div *ngIf="activeSession === true">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</div>

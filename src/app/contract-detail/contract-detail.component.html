@@ -1,0 +1,60 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <h1 class="title">Contract Details</h1>
+</div>
+<!-- 
+ <div>
+  {{contract|json}}
+</div> -->
+ 
+<div class="container"
+fxLayout="row"
+fxLayout.sm="column"
+fxLayout.xs="column"
+fxLayoutAlign.gt-md="space-around center"
+fxLayoutGap="10px"
+fxLayoutGap.xs="0">
+<!-- <div fxFlex fxFlex.gt-sm="10%">
+    <img src="../../assets/images/functManual.png" alt="Logo" width="180" height="200">
+  </div>-->
+<div fxFlex="50"> 
+
+<div fxFlex *ngIf="contract">
+
+  <mat-card>
+   <mat-card-title-group>
+     <mat-card-title>
+        <h3>Contract for Position: {{contract.positionCommand.positionName | uppercase}}</h3>
+     </mat-card-title>
+   </mat-card-title-group>
+   <h3>Description:</h3>
+   <mat-card-content>
+     <p>
+       {{contract.contractDescription}}
+     </p>
+   </mat-card-content>
+   <h3>Position Name:</h3>
+   <mat-card-content>
+     <p>{{contract.positionCommand.positionName}}
+     </p>
+   </mat-card-content>
+   <h3>Employee Name:</h3>
+   <mat-card-content>
+    <p>{{contract.employeeCommand.name}}
+    </p>
+  </mat-card-content>
+  <h3>Contract Init Date:</h3>
+   <mat-card-content>
+    <p>{{contract.createdOn}}
+    </p>
+  </mat-card-content>
+
+   <mat-card-actions align="start">
+      <button mat-button (click)="goBack()" class="background-primary text-floral-white">BACK</button>
+      <button mat-button routerLink="/contractUpdate/{{contract.id}}" class="background-primary text-floral-white">Update</button>
+      <button mat-button (click)="deleteContract(contract.id, contract.employeeCommand.name)" class="background-primary text-floral-white">Delete</button>
+   </mat-card-actions> 
+ </mat-card>
+</div>
+</div>
+</div>

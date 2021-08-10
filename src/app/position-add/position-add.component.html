@@ -1,0 +1,30 @@
+<h1 class="title">Register New Position</h1>
+
+
+<form class="register-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Position Name" [(ngModel)]='position.positionName' name='name'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Position Code" [(ngModel)]='position.positionCode' name='code'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Position Description" [(ngModel)]='position.positionDescription' name='description'>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Postion Type" [(ngModel)]='position.positionType' name='type'>
+  </mat-form-field>
+
+</form>
+<br>
+<div>
+  <mat-toolbar class="boton">
+    <button mat-button routerLink="/position" class="background-primary text-floral-white">BACK</button>
+    <span fxFlex class="flex-spacer"></span>
+    <button mat-button (click)="addPosition()" class="background-primary text-floral-white">CREATE</button>
+  </mat-toolbar>
+</div>
+<br>

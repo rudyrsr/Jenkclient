@@ -1,0 +1,60 @@
+<mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+  <div fxFlex>
+    ADD Subcategory
+  </div>
+  <span fxFlex class="flex-spacer"></span>
+  <div fxFlex align="end">
+    <button mat-button mat-dialog-close>&times;</button>
+  </div>
+</mat-toolbar>
+
+<!--p>{{subcategory | json}}</p-->
+<form novalidate #loginForm="ngForm">
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <input matInput [(ngModel)]="subcategory.nameSub"
+               type="text" id="name"
+               placeholder="NameSubcategory" name="name" #subcategoryname="ngModel" pattern="[A-Za-z ]+" required>
+        <mat-hint>
+          <span [hidden]="subcategoryname.pristine">
+            <span [hidden]="!subcategoryname.errors?.required">Name of Subcategory is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="subcategory.codeSub"
+               type="text" id="code"
+               placeholder="CodeSubcategory" name="code" #subcategorycode="ngModel" required>
+        <mat-hint>
+          <span [hidden]="subcategorycode.pristine">
+            <span [hidden]="!subcategorycode.errors?.required">Code of Subcategory is required</span>
+          </span>
+        </mat-hint>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Category " [(ngModel)]="subcategory.categoryId" name='cat' #category="ngModel"
+                    id="category"
+                    required>
+          <mat-option *ngFor="let category of categorys" [value]="category.idCateg">
+            {{ category.nameCategory}}
+          </mat-option>
+          <mat-hint>
+          <span [hidden]="category.pristine">
+            <span [hidden]="!category.errors?.required">Category is required</span>
+          </span>
+          </mat-hint>
+        </mat-select>
+      </mat-form-field>
+    </p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close id="cancelSub">Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white"
+            [disabled]="loginForm.form.invalid" (click)="onSubmit()" id="enviarSub">Enviar
+    </button>
+  </mat-dialog-actions>
+
+</form>
+

@@ -1,0 +1,48 @@
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+  <h1 class="title">Position Detail</h1>
+</div>
+
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div fxFlex="50">
+
+    <div fxFlex *ngIf="position">
+      <mat-card>
+
+        <mat-card-title-group>
+          <mat-card-title>
+             <h3>Position Name: {{position.positionName | uppercase}}</h3>
+          </mat-card-title>
+        </mat-card-title-group>
+        <h3>Description:</h3>
+        <mat-card-content>
+          <p>
+            {{position.positionDescription}}
+          </p>
+        </mat-card-content>
+        <h3>Position Code:</h3>
+        <mat-card-content>
+          <p>{{position.positionCode}}
+          </p>
+        </mat-card-content>
+        <h3>Position Type:</h3>
+        <mat-card-content>
+          <p>{{position.positionType}}
+          </p>
+        </mat-card-content>
+
+        <mat-card-actions align="start">
+           <button mat-button (click)="goBack()" class="background-primary text-floral-white">BACK</button>
+           <button mat-button routerLink="/positionUpdate/{{position.id}}" class="background-primary text-floral-white">Update</button>
+           <button mat-button (click)="deletePosition(position.id, position.positionName)" class="background-primary text-floral-white">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

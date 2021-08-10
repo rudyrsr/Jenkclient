@@ -1,0 +1,72 @@
+<h1>List Ocupational Safety</h1>
+<table mat-table [dataSource]="ocupationalList" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Label Column -->
+  <ng-container matColumnDef="Code">
+    <th mat-header-cell *matHeaderCellDef> Code </th>
+    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+  </ng-container>
+
+  <!-- Label Column -->
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Employee Column -->
+  <ng-container matColumnDef="FrequencyIndex">
+    <th mat-header-cell *matHeaderCellDef> Frequency Index </th>
+    <td mat-cell *matCellDef="let element"> {{element.frequencyIndex}} </td>
+  </ng-container>
+ 
+  <ng-container matColumnDef="IncidentReduction">
+    <th mat-header-cell *matHeaderCellDef> Incident Reduction </th>
+    <td mat-cell *matCellDef="let element"> {{element.incidentReduction}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="GoalReducction">
+    <th mat-header-cell *matHeaderCellDef> Goal Reduction </th>
+    <td mat-cell *matCellDef="let element"> {{element.goalReducction}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Activities">
+    <th mat-header-cell *matHeaderCellDef> Activities </th>
+    <td mat-cell *matCellDef="let element"> {{element.activities}} </td>
+  </ng-container>
+
+
+  <!-- View Column -->
+  <ng-container matColumnDef="view">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <a mat-icon-button (click)="deleteOcupationalSafety(element.id)">
+          <mat-icon aria-label="Editar" style="color: red;">clear</mat-icon>
+        </a>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef> Edit </th>
+        <td mat-cell *matCellDef="let element">
+          <a mat-icon-button href [routerLink]="'/ocupationalsafety/edit/' + element.id">
+            <mat-icon aria-label="Editar" style="color: yellowgreen">create</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<!-- Create New -->
+<br>
+<div>
+  <button mat-button routerLink="/ocupationalSafety/create" class="background-primary text-floral-white">
+    REGISTRATE NEW OCUPATIONAL SAFETY
+  </button>
+</div><br>
